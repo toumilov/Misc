@@ -24,6 +24,10 @@ Proxy application needs few argument to start.
 
 **Example:** `./proxy 6776 127.0.0.1`
 
+### Output
+Requests are logged to **log.txt** file.
+File contents are truncated on every proxy start.
+
 ## Test utility
 **test.py**
 
