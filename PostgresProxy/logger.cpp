@@ -3,7 +3,7 @@
 #include <stdarg.h>
 #include "logger.hpp"
 
-
+// Printf-like format function which returns std::string
 static std::string __attribute__((format (printf, 1, 2))) string_format( const char *format, ... )
 {
 	va_list vl, vl2;

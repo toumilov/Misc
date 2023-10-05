@@ -27,5 +27,5 @@ proxy: $(OBJ_FILES)
 
 clean:
 	rm -fr $(BUILD_DIR)
-	rm proxy
+	rm -f proxy
 

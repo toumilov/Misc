@@ -42,7 +42,7 @@ This proxy solution is capable of handling reasonably medium load. It implies, t
 
 ### Threads
 Proxy is designed as multithreaded application. Though, it doesn't spawn a thread for each client connection. Instead, it used a thread pool of fixed size.
-1. **Listener thread** - tracks incoming connections and creates a sessions.
+1. **Listener thread (main)** - tracks incoming connections and creates a sessions.
 2. **Worker thread** - tracks session list and performs basic scheduling.
 3. **Thread pool** - fixed list of worker threads, which can perform asynchronous tasks.
 

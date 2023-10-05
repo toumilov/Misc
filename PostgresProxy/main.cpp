@@ -22,8 +22,11 @@ void usage( const char *self )
 int main( int argc, char **argv )
 {
 	static const unsigned default_postgres_port = 5432;
+
+	// Setup Ctrl+C handler for graceful shutdown
 	signal( SIGINT, interrupt_signal_handler );
 
+	// Argument parsing
 	auto read_uint_arg = [&]( unsigned &num, int arg, bool optional = false ) -> bool {
 		unsigned n = 0;
 		if ( argc > arg )
@@ -52,8 +55,13 @@ int main( int argc, char **argv )
 		return 1;
 	}
 
+	// Setup tracing
 	Trace::instance().setup( Trace::Level::Error ); // Debug
+
+	// Setup query logger
 	FileLogger logger( "log.txt" );
+
+	// Instantiate proxy
 	Proxy proxy( client_port, argv[2], server_port, logger );
 	proxy_ref = &proxy;
 	proxy.run();
